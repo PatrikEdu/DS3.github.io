@@ -1,0 +1,26 @@
+# Habilitar o dotnet-ef dotnet-aspnet-codegenerator
+dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0
+
+# Configura o manipulador do banco de dados (SQLite)
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite.Design
+dotnet ef dbcontext scaffold "Data Source=app.db" Microsoft.EntityFrameworkCore.Sqlite -o Data
+
+# Transforma um ou mais modelos em tabelas
+dotnet ef migrations add "Descricao"
+dotnet ef database update
+
+# Gerando o CRUD
+dotnet aspnet-codegenerator controller -name PessoasController -m Pessoa -dc appContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+
+# StartUp.cs Add o comando abaixo e depois add as diretivas using de //AddDbContext// e //UseSqlite//
+public void ConfigureServices(IServiceCollection services)
+        {
+        --> services.AddDbContext<appContext>(options => options.UseSqlite("Data Source=app.db"));
+            services.AddControllersWithViews();
+        }
+# Layout.cshtml Add itens de nav

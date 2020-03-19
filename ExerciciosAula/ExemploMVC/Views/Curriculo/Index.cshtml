@@ -1,0 +1,61 @@
+@model ExemploMVC.Models.Curriculo
+@{
+    ViewData["Title"] = "Curriculo";
+}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="~/css/estilos.css" />
+    </head>
+    <body>
+        <div class="a">
+			<div class="a1">
+                <h1>@Model.Nome</h1>
+                <ul>CPF: @Model.CPF</ul>
+                <ul>Telefone: @Model.Telefone</ul>
+                <ul>Endereço: @Model.Endereco</ul>
+                <ul>Habilitação: @Model.Habilitacao</ul>
+			</div>
+            <div class="Img">
+                <img src="~/Img/perfil.png" width="190" height="220">
+            </div>
+            <div class="a2">
+                <h2>@Model.Experience</h2><br>
+            </div>
+			<div class="a3">
+                <h3>@Model.Paludo </h3>
+                <h4>Assistente Expedição</h4>
+                <a>Período de 25/04/2016 à 27/06/2018.</a> 
+			</div>
+			<div class="a4">
+                <h3>@Model.Exercito </h3>
+                <h4>Cabo de Infantaria</h4>
+                <a>Período de 01/03/2012 à 01/03/2016.</a>
+                    
+			</div>
+			<div class="a5">
+                <h3>@Model.Wyntech</h3>
+                <h4>Auxiliar de Informática</h4>
+                <a>Período atual, admissão 10/04/2019.</a>
+			</div>
+			<div class="a6">
+                <h2>@Model.Formation</h2>
+			</div>
+            <div class="a7">
+                <h4>@Model.EnsinoMedio</h4>
+                <a>Ensino Medio</a>
+            </div>
+			<div class="a8">
+                <h4>@Model.Tecnico</h4>
+                <a>Tecnico em Informatica</a>
+			</div>
+			<div class="a9">
+               <h2>Considerações</h2>
+			</div>
+            <div class="a10">
+                <a>@Model.Consideracao</a>
+			</div>
+
+		</div>        
+    </body>
+</html>
